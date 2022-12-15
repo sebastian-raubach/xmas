@@ -6,10 +6,10 @@
       <div id="text" class="sleep-text">{{ sleepsText }}</div>
 
       <div class="from-to-text">
-        {{ $t('pageHomeFrom', { from: from }) }}
+        {{ $t('pageHomeTo', { to: to }) }}
       </div>
       <div class="from-to-text">
-        {{ $t('pageHomeTo', { to: to }) }}
+        {{ $t('pageHomeFrom', { from: from }) }}
       </div>
     </div>
   </div>
