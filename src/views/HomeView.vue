@@ -42,16 +42,16 @@ export default {
     },
     from: function () {
       if (this.$route.query && this.$route.query.from) {
-        return this.listFormatter.format(this.$route.query.from)
+        return this.listFormatter.format(this.toArray(this.$route.query.from))
       } else {
-        return this.listFormatter.format([])
+        return this.listFormatter.format(['?'])
       }
     },
     to: function () {
       if (this.$route.query && this.$route.query.to) {
-        return this.listFormatter.format(this.$route.query.to)
+        return this.listFormatter.format(this.toArray(this.$route.query.to))
       } else {
-        return this.listFormatter.format([])
+        return this.listFormatter.format(['?'])
       }
     },
     locale: function () {
@@ -65,6 +65,17 @@ export default {
   watch: {
     locale: function (newValue) {
       loadLanguageAsync(newValue)
+    }
+  },
+  methods: {
+    toArray: function (value) {
+      if (Array.isArray(value)) {
+        return value
+      } else if (value) {
+        return [value]
+      } else {
+        return []
+      }
     }
   },
   mounted: function () {
